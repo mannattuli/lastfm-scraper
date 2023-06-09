@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <title>LASTFM SCRAPER</title>
+</head>
+<body>
+
+    <input id="user-ls" name="username"/>
+    <button onclick="getUsername()">submit</button>
+    
+    <br />
+    <h1>Top Songs For Last week</h1>
+
+    <div id="result"></div>
+
+    <script>
+
+
+    function getUsername() {
+
+        user_ls = document.getElementById("user-ls")
+
+        var username = user_ls.value
+        $(document).ready(function () {
+            $.getJSON(
+                `https://ws.audioscrobbler.com/2.0/?method=user.getweeklytrackchart&user=${username}&api_key=953187488a724f2bf2eba12d1d5d8029&limit=10&format=json&callback=?`,
+                function (json) {
+                var html = "";
+                $.each(json.weeklytrackchart.track, function (i, item) {
+                    html +=
+                    "<p><a href=" +
+                    item.url +
+                    " target='_blank'>" +
+                    item.name +
+                    "</a> - " +
+                    "Play count : " +
+                    item.playcount +
+                    "</p>";
+                });
+                $("#result").append(html);
+                }
+            );
+        });
+    }
+    </script>
+</body>
+</html>
