@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <link rel="stylesheet" href="style.css">
-    
+
     <title>LASTFM SCRAPER</title>
 </head>
 <body>
-    
+
     <nav>
         <a href="/">Stats</a>
         &nbsp;
@@ -27,20 +27,17 @@
     </select>
 
     <select id="limit">
-        <option value="5">top 5</option>
-        <option value="6">top 6</option>        
-        <option value="7">top 7</option>
-        <option value="8">top 8</option>
-        <option value="9">top 9 </option>
-        <option value="10">top 10</option>
+        <!-- <option value="9">3x3</option> -->
+        <option value="17">4x4</option>
+        <!-- <option value="25">5x5</option>         -->
     </select>
 
     <button onclick="getUsername()">submit</button>
     
     <br />
     
-    <ol id="result"></ol>
+    <ol id="result" style="max-width: 696px;"></ol>
 
-    <script src="js/stats.js"></script>
+    <script src="js/collage.js"></script>
 </body>
 </html>
